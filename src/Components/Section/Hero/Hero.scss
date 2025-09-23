@@ -1,0 +1,546 @@
+// Hero Variables (Local to this component)
+$hero-bg-color: #0a0a14;
+$hero-text-color: #f5f5f7;
+$hero-text-secondary: #a1a1b3;
+$hero-primary: #6e45e2;
+$hero-accent: #ff7e5f;
+$hero-gradient: linear-gradient(135deg, #6e45e2, #ff7e5f);
+
+$hero-spacing-xs: 0.5rem;
+$hero-spacing-sm: 1rem;
+$hero-spacing-md: 1.5rem;
+$hero-spacing-lg: 2rem;
+$hero-spacing-xl: 3rem;
+$hero-spacing-xxl: 4rem;
+
+$hero-font-primary: 'Poppins', sans-serif;
+$hero-font-secondary: 'Inter', sans-serif;
+
+$hero-breakpoint-tablet: 968px;
+$hero-breakpoint-mobile: 480px;
+
+// ----------------------------------------------------
+// Fix: define badge colors in SCSS and export as CSS vars
+// ----------------------------------------------------
+$badge-base: #6e45e2;
+$badge-light: lighten($badge-base, 20%);
+
+:root {
+  --badge-color: #{$badge-base};
+  --badge-color-light: #{$badge-light};
+}
+
+// Hero Styles
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background: $hero-bg-color;
+  padding-top: 80px; // Account for fixed header
+
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  &__shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.03;
+    background: $hero-gradient;
+    filter: blur(40px);
+
+    &--1 {
+      width: 400px;
+      height: 400px;
+      top: -100px;
+      left: -100px;
+      animation: heroFloat 20s infinite linear;
+    }
+
+    &--2 {
+      width: 300px;
+      height: 300px;
+      top: 50%;
+      right: -50px;
+      animation: heroFloat 25s infinite linear reverse;
+    }
+
+    &--3 {
+      width: 200px;
+      height: 200px;
+      bottom: -50px;
+      left: 30%;
+      animation: heroFloat 15s infinite linear;
+    }
+  }
+
+  &__gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 80%, rgba(110, 69, 226, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(255, 126, 95, 0.1) 0%, transparent 50%);
+  }
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 $hero-spacing-md;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+
+    @media (max-width: $hero-breakpoint-tablet) {
+      padding: 0 $hero-spacing-sm;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $hero-spacing-xxl;
+    align-items: center;
+    min-height: 80vh;
+
+    @media (max-width: $hero-breakpoint-tablet) {
+      grid-template-columns: 1fr;
+      gap: $hero-spacing-xl;
+      text-align: center;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }
+
+  &__text {
+    margin-bottom: $hero-spacing-xxl;
+  }
+
+  &__greeting {
+    color: $hero-primary;
+    font-family: $hero-font-secondary;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: $hero-spacing-sm;
+
+    @media (max-width: $hero-breakpoint-mobile) {
+      font-size: 1rem;
+    }
+  }
+
+  &__title {
+    font-family: $hero-font-primary;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: $hero-spacing-md;
+
+    &--primary {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      background: $hero-gradient;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: block;
+    }
+
+    &--secondary {
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      color: $hero-text-secondary;
+      font-weight: 600;
+    }
+  }
+
+  &__description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: $hero-text-secondary;
+    max-width: 500px;
+
+    @media (max-width: $hero-breakpoint-tablet) {
+      margin: 0 auto;
+      font-size: 1rem;
+    }
+  }
+
+  &__actions {
+    margin-bottom: $hero-spacing-xl;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: $hero-spacing-md;
+    flex-wrap: wrap;
+
+    @media (max-width: $hero-breakpoint-tablet) {
+      justify-content: center;
+    }
+
+    @media (max-width: $hero-breakpoint-mobile) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: $hero-spacing-xs;
+    padding: $hero-spacing-sm $hero-spacing-lg;
+    border: none;
+    border-radius: 8px;
+    font-family: $hero-font-primary;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+
+    &--primary {
+      background: $hero-gradient;
+      color: white;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(110, 69, 226, 0.4);
+      }
+    }
+
+    &--secondary {
+      background: transparent;
+      color: $hero-text-color;
+      border: 2px solid rgba($hero-text-color, 0.3);
+
+      &:hover {
+        background: rgba($hero-text-color, 0.1);
+        border-color: $hero-primary;
+        color: $hero-primary;
+      }
+    }
+
+    &-icon {
+      transition: transform 0.3s ease;
+    }
+
+    &:hover &-icon {
+      transform: translateX(3px);
+    }
+
+    @media (max-width: $hero-breakpoint-mobile) {
+      width: 100%;
+      max-width: 280px;
+      justify-content: center;
+    }
+  }
+
+  &__social {
+    display: flex;
+    align-items: center;
+    gap: $hero-spacing-md;
+
+    @media (max-width: $hero-breakpoint-tablet) {
+      justify-content: center;
+    }
+  }
+
+  &__social-links {
+    display: flex;
+    gap: $hero-spacing-sm;
+  }
+
+  &__social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: rgba($hero-text-color, 0.05);
+    border: 1px solid rgba($hero-text-color, 0.1);
+    border-radius: 8px;
+    color: $hero-text-secondary;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+
+    &:hover {
+      background: $hero-primary;
+      color: white;
+      border-color: $hero-primary;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(110, 69, 226, 0.3);
+    }
+  }
+
+  &__social-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, transparent, $hero-text-secondary, transparent);
+  }
+
+  // Image Styles
+  &__image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  &__image-wrapper {
+    position: relative;
+    width: 380px;
+    height: 380px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media (max-width: $hero-breakpoint-tablet) {
+      width: 300px;
+      height: 300px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: $hero-breakpoint-mobile) {
+      width: 280px;
+      height: 280px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    position: relative;
+    z-index: 2;
+    filter: grayscale(0.1) contrast(1.1);
+    transition: filter 0.3s ease;
+
+    .hero__image-wrapper:hover & {
+      filter: grayscale(0) contrast(1.2);
+    }
+  }
+
+  &__image-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $hero-gradient;
+    border-radius: 20px;
+    filter: blur(20px);
+    opacity: 0.3;
+    z-index: 1;
+    animation: glowPulse 4s ease-in-out infinite;
+  }
+
+  &__image-frame {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 2px solid rgba($hero-primary, 0.3);
+    border-radius: 25px;
+    z-index: 3;
+    pointer-events: none;
+  }
+
+  // Rotating Tech Badges - IMPROVED ORBIT ANIMATION
+  &__tech-badge {
+    position: absolute;
+    background: rgba(10, 10, 20, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid;
+    border-color: var(--badge-color);
+    border-radius: 25px;
+    padding: 8px 16px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    
+    // Center the badges initially
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    // Create the orbit effect
+    animation: orbitBadge 20s linear infinite;
+    animation-delay: calc(var(--badge-index) * -3s);
+
+    &:hover {
+      transform: scale(1.1) translate(-50%, -50%);
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+      z-index: 5;
+      animation-play-state: paused;
+    }
+
+    @media (max-width: $hero-breakpoint-tablet) {
+      padding: 6px 12px;
+      font-size: 0.7rem;
+    }
+  }
+
+  // Position each badge at different angles around the circle
+  &__tech-badge--react {
+    --orbit-radius: 200px;
+    --start-angle: 0deg;
+  }
+  &__tech-badge--ts {
+    --orbit-radius: 200px;
+    --start-angle: 60deg;
+  }
+  &__tech-badge--js {
+    --orbit-radius: 200px;
+    --start-angle: 120deg;
+  }
+  &__tech-badge--css {
+    --orbit-radius: 200px;
+    --start-angle: 180deg;
+  }
+  &__tech-badge--tailwind {
+    --orbit-radius: 200px;
+    --start-angle: 240deg;
+  }
+  &__tech-badge--html {
+    --orbit-radius: 200px;
+    --start-angle: 300deg;
+  }
+
+  &__tech-icon {
+    font-size: 0.9rem;
+  }
+
+  &__tech-text {
+    background: linear-gradient(135deg, var(--badge-color), var(--badge-color-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    white-space: nowrap;
+  }
+
+  &__scroll {
+    position: absolute;
+    bottom: $hero-spacing-xl;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $hero-spacing-xs;
+    color: $hero-text-secondary;
+    cursor: pointer;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $hero-primary;
+    }
+
+    @media (max-width: $hero-breakpoint-tablet) {
+      bottom: $hero-spacing-lg;
+    }
+  }
+
+  &__scroll-text {
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  &__scroll-arrow {
+    color: currentColor;
+  }
+}
+
+// Animations
+@keyframes heroFloat {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-20px) rotate(120deg);
+  }
+  66% {
+    transform: translateY(10px) rotate(240deg);
+  }
+}
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.05);
+  }
+}
+
+// NEW IMPROVED ORBIT ANIMATION
+@keyframes orbitBadge {
+  0% {
+    transform: 
+      rotate(var(--start-angle)) 
+      translateX(var(--orbit-radius)) 
+      rotate(calc(-1 * var(--start-angle))) 
+      translate(-50%, -50%);
+  }
+  100% {
+    transform: 
+      rotate(calc(var(--start-angle) + 360deg)) 
+      translateX(var(--orbit-radius)) 
+      rotate(calc(-1 * var(--start-angle) - 360deg)) 
+      translate(-50%, -50%);
+  }
+}
+
+// Responsive orbit radius adjustments
+@media (max-width: $hero-breakpoint-tablet) {
+  .hero {
+    &__tech-badge {
+      --orbit-radius: 160px;
+    }
+  }
+}
+
+@media (max-width: $hero-breakpoint-mobile) {
+  .hero {
+    &__tech-badge {
+      --orbit-radius: 140px;
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: $hero-breakpoint-tablet) {
+  .hero {
+    &__grid {
+      min-height: auto;
+      padding: $hero-spacing-xl 0;
+    }
+  }
+}

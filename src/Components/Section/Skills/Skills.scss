@@ -1,0 +1,339 @@
+// Skills Variables
+$skills-bg: #161627;
+$skills-bg-secondary: #0a0a14;
+$skills-text: #f5f5f7;
+$skills-text-secondary: #a1a1b3;
+$skills-primary: #6e45e2;
+$skills-accent: #ff7e5f;
+$skills-gradient: linear-gradient(135deg, #6e45e2, #ff7e5f);
+
+$skills-spacing-xs: 0.5rem;
+$skills-spacing-sm: 1rem;
+$skills-spacing-md: 1.5rem;
+$skills-spacing-lg: 2rem;
+$skills-spacing-xl: 3rem;
+$skills-spacing-xxl: 4rem;
+
+$skills-font-primary: 'Poppins', sans-serif;
+$skills-font-secondary: 'Inter', sans-serif;
+
+$skills-breakpoint-tablet: 968px;
+$skills-breakpoint-mobile: 480px;
+
+// Skills Styles
+.skills {
+  padding: $skills-spacing-xxl 0;
+  background: $skills-bg;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, $skills-primary, transparent);
+  }
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 $skills-spacing-md;
+
+    @media (max-width: $skills-breakpoint-tablet) {
+      padding: 0 $skills-spacing-sm;
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: $skills-spacing-xxl;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__subtitle {
+    color: $skills-primary;
+    font-family: $skills-font-secondary;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: $skills-spacing-sm;
+  }
+
+  &__title {
+    font-family: $skills-font-primary;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: $skills-text;
+    margin-bottom: $skills-spacing-md;
+
+    @media (max-width: $skills-breakpoint-tablet) {
+      font-size: 2rem;
+    }
+
+    @media (max-width: $skills-breakpoint-mobile) {
+      font-size: 1.75rem;
+    }
+  }
+
+  &__divider {
+    width: 80px;
+    height: 4px;
+    background: $skills-gradient;
+    margin: 0 auto $skills-spacing-md auto;
+    border-radius: 2px;
+  }
+
+  &__description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: $skills-text-secondary;
+    
+    @media (max-width: $skills-breakpoint-mobile) {
+      font-size: 1rem;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $skills-spacing-xl;
+    margin-bottom: $skills-spacing-xxl;
+
+    @media (max-width: $skills-breakpoint-tablet) {
+      grid-template-columns: 1fr;
+      gap: $skills-spacing-lg;
+    }
+  }
+
+  // Category Styles
+  &__category {
+    background: $skills-bg-secondary;
+    padding: $skills-spacing-xl;
+    border-radius: 20px;
+    border: 1px solid rgba($skills-text, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    @media (max-width: $skills-breakpoint-tablet) {
+      padding: $skills-spacing-lg;
+    }
+  }
+
+  &__category-header {
+    display: flex;
+    align-items: center;
+    gap: $skills-spacing-md;
+    margin-bottom: $skills-spacing-lg;
+  }
+
+  &__category-icon {
+    font-size: 2rem;
+    color: $skills-primary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: rgba($skills-primary, 0.1);
+    border-radius: 12px;
+  }
+
+  &__category-title {
+    font-family: $skills-font-primary;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $skills-text;
+    margin: 0;
+
+    @media (max-width: $skills-breakpoint-mobile) {
+      font-size: 1.3rem;
+    }
+  }
+
+  // Skills List Styles
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: $skills-spacing-md;
+  }
+
+  &__item {
+    background: rgba($skills-text, 0.03);
+    border: 1px solid rgba($skills-text, 0.1);
+    border-radius: 12px;
+    padding: $skills-spacing-md;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      background: rgba($skills-primary, 0.05);
+      border-color: rgba($skills-primary, 0.3);
+      transform: translateX(5px);
+    }
+  }
+
+  &__item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $skills-spacing-sm;
+  }
+
+  &__item-info {
+    display: flex;
+    align-items: center;
+    gap: $skills-spacing-sm;
+  }
+
+  &__item-icon {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+  }
+
+  &__item-name {
+    font-family: $skills-font-primary;
+    font-weight: 600;
+    color: $skills-text;
+    font-size: 1rem;
+  }
+
+  &__item-percent {
+    font-size: 0.9rem;
+    color: $skills-primary;
+    font-weight: 600;
+  }
+
+  &__item-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba($skills-text, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  &__item-progress {
+    height: 100%;
+    border-radius: 3px;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+      animation: skillsShimmer 2s infinite;
+    }
+  }
+
+  // Skills Summary
+  &__summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $skills-spacing-md;
+    background: $skills-bg-secondary;
+    padding: $skills-spacing-xl;
+    border-radius: 20px;
+    border: 1px solid rgba($skills-text, 0.1);
+
+    @media (max-width: $skills-breakpoint-tablet) {
+      grid-template-columns: repeat(2, 1fr);
+      padding: $skills-spacing-lg;
+    }
+
+    @media (max-width: $skills-breakpoint-mobile) {
+      grid-template-columns: 1fr;
+      gap: $skills-spacing-md;
+    }
+  }
+
+  &__summary-item {
+    text-align: center;
+    padding: $skills-spacing-md;
+  }
+
+  &__summary-number {
+    font-family: $skills-font-primary;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: $skills-primary;
+    line-height: 1;
+    margin-bottom: $skills-spacing-xs;
+
+    @media (max-width: $skills-breakpoint-tablet) {
+      font-size: 2rem;
+    }
+  }
+
+  &__summary-label {
+    font-size: 0.9rem;
+    color: $skills-text-secondary;
+    font-weight: 500;
+  }
+}
+
+// Animations
+@keyframes skillsShimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+// Responsive adjustments
+@media (max-width: $skills-breakpoint-tablet) {
+  .skills {
+    padding: $skills-spacing-xl 0;
+  }
+}
+
+@media (max-width: $skills-breakpoint-mobile) {
+  .skills {
+    &__category-header {
+      flex-direction: column;
+      text-align: center;
+      gap: $skills-spacing-sm;
+    }
+
+    &__category-icon {
+      width: 50px;
+      height: 50px;
+      font-size: 1.5rem;
+    }
+
+    &__item-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: $skills-spacing-xs;
+    }
+
+    &__item-percent {
+      align-self: flex-end;
+    }
+  }
+}
