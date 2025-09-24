@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
-import '../src/Components/Styles/_globals.scss'
+// import '../src/Components/Styles/_globals.scss'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

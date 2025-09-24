@@ -5,7 +5,7 @@ import './About.scss'
 const About = () => {
   const stats = [
     { icon: <FaCode />, number: '5+', label: 'Projects Completed' },
-    { icon: <FaRocket />, number: '3+', label: 'Years Experience' },
+    { icon: <FaRocket />, number: '5+', label: 'Years Experience' },
     { icon: <FaHeart />, number: '100%', label: 'Client Satisfaction' }
   ]
 

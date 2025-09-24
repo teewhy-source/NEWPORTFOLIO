@@ -340,9 +340,9 @@ $projects-breakpoint-mobile: 480px;
       color: white;
       border-color: $projects-primary;
 
-      &:hover {
-        background: lighten($projects-primary, 10%);
-      }
+    //   &:hover {
+    //     background: lighten($projects-primary, 10%);
+    //   }
     }
   }
 

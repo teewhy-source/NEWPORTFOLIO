@@ -1,0 +1,57 @@
+// Color palette
+$primary-color: #6e45e2;
+$secondary-color: #88d3ce;
+$accent-color: #ff7e5f;
+
+// Dark theme
+$dark-bg: #0a0a14;
+$dark-bg-secondary: #161627;
+$dark-text: #f5f5f7;
+$dark-text-secondary: #a1a1b3;
+
+// Light theme
+$light-bg: #f8f9fa;
+$light-bg-secondary: #ffffff;
+$light-text: #33334d;
+$light-text-secondary: #6a6a8a;
+
+// Spacing
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 1.5rem;
+$spacing-lg: 2.5rem;
+$spacing-xl: 4rem;
+$spacing-xxl: 6rem;
+
+// Typography
+$font-family-primary: 'Poppins', sans-serif;
+$font-family-secondary: 'Inter', sans-serif;
+
+$font-size-xs: 0.75rem;
+$font-size-sm: 0.875rem;
+$font-size-md: 1rem;
+$font-size-lg: 1.25rem;
+$font-size-xl: 1.5rem;
+$font-size-xxl: 2.5rem;
+$font-size-hero: 3.5rem;
+
+// Border radius
+$border-radius-sm: 0.5rem;
+$border-radius-md: 0.75rem;
+$border-radius-lg: 1rem;
+
+// Shadows
+$shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 10px 20px rgba(0, 0, 0, 0.15);
+$shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.2);
+
+// Transitions
+$transition-fast: 0.2s ease;
+$transition-normal: 0.3s ease;
+$transition-slow: 0.5s ease;
+
+// Breakpoints
+$breakpoint-mobile: 576px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 992px;
+$breakpoint-xl: 1200px;
