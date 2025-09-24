@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { FaGithub, FaLinkedin, FaTwitter, FaDownload, FaArrowRight } from 'react-icons/fa'
 import './Hero.scss'
+import resume from "../../../assets/images/edidi-taiye-FlowCV-Resume-20250709.pdf"
 
 // Import your profile image (update the path to your actual image)
 import profileImage from '../../../assets/images/FINEBOY.jpg' // or profile.png // or profile.png
@@ -163,7 +164,7 @@ const Hero = () => {
                 </motion.button>
                 
                 <motion.a 
-                  href="/resume.pdf" 
+                  href={resume} 
                   className="hero__btn hero__btn--secondary"
                   download
                   whileHover={{ scale: 1.05 }}

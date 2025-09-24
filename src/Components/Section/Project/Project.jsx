@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { FaGithub, FaExternalLinkAlt, FaTimes, FaCode, FaPalette, FaGlobe } from 'react-icons/fa'
 import { SiReact, SiJavascript, SiTypescript, SiNodedotjs, SiPython } from 'react-icons/si'
 import './projects.scss'
+import image from "../../../assets/images/FINEBOY.jpg"
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('all')
@@ -23,9 +24,9 @@ const Projects = () => {
       title: 'E-Commerce Platform',
       description: 'A modern e-commerce platform with React, Node.js, and MongoDB',
       fullDescription: 'A complete e-commerce solution featuring user authentication, product management, shopping cart, payment integration, and admin dashboard. Built with modern technologies and best practices.',
-      image: '/api/placeholder/400/250',
+      image: image,
       category: ['react', 'fullstack'],
-      technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Stripe'],
+      technologies: ['React', 'firebase',"react-icons" ],
       features: ['User Authentication', 'Product Management', 'Shopping Cart', 'Payment Processing', 'Admin Dashboard'],
       liveUrl: 'https://example.com',
       githubUrl: 'https://github.com/example',
@@ -36,7 +37,7 @@ const Projects = () => {
       title: 'Task Management App',
       description: 'A collaborative task management application with real-time updates',
       fullDescription: 'A Kanban-style task management application with real-time collaboration features. Users can create boards, assign tasks, set deadlines, and track progress.',
-      image: '/api/placeholder/400/250',
+      image: image,
       category: ['react', 'typescript'],
       technologies: ['React', 'TypeScript', 'Firebase', 'Material-UI'],
       features: ['Real-time Updates', 'Drag & Drop', 'Team Collaboration', 'Progress Tracking'],
@@ -49,7 +50,7 @@ const Projects = () => {
       title: 'Weather Dashboard',
       description: 'Real-time weather forecasting application with beautiful UI',
       fullDescription: 'A responsive weather dashboard that displays current conditions, forecasts, and weather maps. Features location-based services and interactive charts.',
-      image: '/api/placeholder/400/250',
+      image: image,
       category: ['javascript'],
       technologies: ['JavaScript', 'API Integration', 'Chart.js', 'CSS3'],
       features: ['Current Weather', '5-Day Forecast', 'Interactive Maps', 'Location Services'],
@@ -62,7 +63,7 @@ const Projects = () => {
       title: 'Portfolio Website',
       description: 'Modern portfolio website with animations and responsive design',
       fullDescription: 'A personal portfolio website showcasing projects and skills. Features smooth animations, dark/light mode, and optimized performance.',
-      image: '/api/placeholder/400/250',
+      image: image,
       category: ['react', 'typescript'],
       technologies: ['React', 'TypeScript', 'Framer Motion', 'Sass'],
       features: ['Responsive Design', 'Smooth Animations', 'Dark/Light Mode', 'SEO Optimized'],
@@ -75,7 +76,7 @@ const Projects = () => {
       title: 'Chat Application',
       description: 'Real-time chat application with rooms and file sharing',
       fullDescription: 'A real-time chat application supporting multiple rooms, file sharing, and user presence indicators. Built with Socket.io for real-time communication.',
-      image: '/api/placeholder/400/250',
+      image: image,
       category: ['react', 'fullstack'],
       technologies: ['React', 'Socket.io', 'Node.js', 'PostgreSQL'],
       features: ['Real-time Messaging', 'File Sharing', 'Multiple Rooms', 'User Presence'],
@@ -85,12 +86,12 @@ const Projects = () => {
     },
     {
       id: 6,
-      title: 'Data Visualization Dashboard',
-      description: 'Interactive data visualization dashboard for analytics',
+      title: 'Legal Case Tracker',
+      description: 'A platform that connects lawyers and clients together',
       fullDescription: 'A comprehensive dashboard for data visualization and analytics. Features interactive charts, data filtering, and export capabilities.',
-      image: '/api/placeholder/400/250',
+      image: image,
       category: ['react', 'typescript'],
-      technologies: ['React', 'TypeScript', 'D3.js', 'Python', 'FastAPI'],
+      technologies: ['React', 'TypeScript', 'MongoDb', 'FastAPI'],
       features: ['Interactive Charts', 'Data Filtering', 'Export Functionality', 'Real-time Data'],
       liveUrl: 'https://example.com',
       githubUrl: 'https://github.com/example',
@@ -271,7 +272,7 @@ const Projects = () => {
 
           {/* View More Button */}
           <motion.div className="projects__cta" variants={itemVariants}>
-            <a href="https://github.com" className="projects__cta-button">
+            <a href="https://github.com/teewhy-source" className="projects__cta-button">
               View All Projects on GitHub
               <FaExternalLinkAlt />
             </a>
