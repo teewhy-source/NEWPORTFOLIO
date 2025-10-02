@@ -22,8 +22,9 @@ $hero-breakpoint-mobile: 480px;
 // ----------------------------------------------------
 // Fix: define badge colors in SCSS and export as CSS vars
 // ----------------------------------------------------
+// QUICK FIX: Replace the problematic line with a static color
 $badge-base: #6e45e2;
-$badge-light: lighten($badge-base, 20%);
+$badge-light: #8d6ae6; // Manually calculated lighter version
 
 :root {
   --badge-color: #{$badge-base};

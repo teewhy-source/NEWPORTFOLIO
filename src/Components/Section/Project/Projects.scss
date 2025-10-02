@@ -1,3 +1,6 @@
+// FIX: Import the Sass color module at the top
+@use "sass:color";
+
 // Projects Variables
 $projects-bg: #0a0a14;
 $projects-bg-secondary: #161627;
@@ -340,9 +343,10 @@ $projects-breakpoint-mobile: 480px;
       color: white;
       border-color: $projects-primary;
 
-    //   &:hover {
-    //     background: lighten($projects-primary, 10%);
-    //   }
+      // FIXED: Use the imported color module
+      &:hover {
+        background: color.scale($projects-primary, $lightness: 10%);
+      }
     }
   }
 
@@ -538,8 +542,9 @@ $projects-breakpoint-mobile: 480px;
       color: white;
       border-color: $projects-primary;
 
+      // FIXED: Use the imported color module
       &:hover {
-        background: lighten($projects-primary, 10%);
+        background: color.scale($projects-primary, $lightness: 10%);
       }
     }
   }
