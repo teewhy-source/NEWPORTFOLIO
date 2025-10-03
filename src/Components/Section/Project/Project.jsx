@@ -5,7 +5,7 @@ import { SiReact, SiJavascript, SiTypescript, SiNodedotjs, SiPython } from 'reac
 import './project.scss'
 import image from "../../../assets/images/FINEBOY.jpg"
 
-const Projects = () => {
+const Project = () => {
   const [activeFilter, setActiveFilter] = useState('all')
   const [selectedProject, setSelectedProject] = useState(null)
   const modalRef = useRef()
@@ -371,4 +371,6 @@ const Projects = () => {
   )
 }
 
-export default Projects
+export default Project
+
+
