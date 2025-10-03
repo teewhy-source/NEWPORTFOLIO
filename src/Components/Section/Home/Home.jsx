@@ -4,7 +4,7 @@ import Header from '../../layout/Header/Header'
 import Hero from '../Hero/Hero'
 import About from '../About/About'
 import Skills from '../Skills/Skills'
-import Projects from '../Project/Project'
+import Project from '../Project/Project'
 import Experience from '../Experience/Experience'
 import Contact from '../Contact/Contact'
 import './Home.scss'
@@ -29,7 +29,7 @@ const Home = () => {
         <Hero />
         <About />
         <Skills />
-        <Projects />
+        <Project />
         <Experience />
         <Contact />
       </main>
