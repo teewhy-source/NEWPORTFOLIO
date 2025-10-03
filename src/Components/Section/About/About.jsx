@@ -98,7 +98,7 @@ const About = () => {
 
               {/* Download Button */}
               <motion.a 
-                href="/resume.pdf" 
+                href="portfolio\src\assets\images\edidi-taiye-FlowCV-Resume-20250709.pdf" 
                 className="about__resume-btn"
                 download
                 variants={itemVariants}
