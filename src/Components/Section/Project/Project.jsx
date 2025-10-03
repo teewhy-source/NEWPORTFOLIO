@@ -2,7 +2,7 @@ import { useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FaGithub, FaExternalLinkAlt, FaTimes, FaCode, FaPalette, FaGlobe } from 'react-icons/fa'
 import { SiReact, SiJavascript, SiTypescript, SiNodedotjs, SiPython } from 'react-icons/si'
-import './project.scss'
+import './Project.scss'
 import image from "../../../assets/images/FINEBOY.jpg"
 
 const Project = () => {
