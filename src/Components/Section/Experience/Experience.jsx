@@ -4,86 +4,90 @@ import './Experience.scss'
 
 const Experience = () => {
   const experiences = [
+   {
+  type: 'work',
+  title: 'Frontend Developer',
+  company: 'Freelance / Contract',
+  period: '2022 - Present',
+  location: 'Lagos, Nigeria',
+  description: 'Building and delivering responsive, user-focused web applications. Specializing in modern frontend development with React and SASS while collaborating with teams and clients to create scalable digital products.',
+  achievements: [
+    'Developed a responsive betting application with custom bet creation and wallet system',
+    'Built a dynamic news site with category-based navigation, search, and admin upload features',
+    'Designed and implemented a legal case tracker for real-time case status updates between law firms and clients',
+    'Created ChefCompanion, a cooking guide app that teaches users recipes and preparation steps'
+  ],
+  technologies: ['React', 'JavaScript', 'TypeScript', 'SASS', 'Tailwind CSS', 'Framer Motion'],
+  icon: <FaBriefcase />
+},
+   {
+  type: 'work',
+  title: 'Frontend Developer',
+  company: 'Independent Projects',
+  period: '2021 - Present',
+  location: 'Remote / Lagos, Nigeria',
+  description: 'Delivering clean, efficient, and scalable frontend solutions for startups and businesses. Focused on turning ideas into functional, user-friendly products with modern UI frameworks and libraries.',
+  achievements: [
+    'Engineered a legal case tracker platform enabling law firms to update clients in real-time',
+    'Developed a photography portfolio site with admin dashboard for seamless content uploads',
+    'Implemented a news publishing platform with admin panel, category filtering, and live search',
+    'Created interactive UI experiences using Framer Motion and optimized SASS architecture for maintainability'
+  ],
+  technologies: ['React', 'SASS', 'JavaScript', 'Tailwind CSS', 'React Icons', 'Framer Motion'],
+  icon: <FaBriefcase />
+}
+,
+   {
+  type: 'work',
+  title: 'Frontend Developer',
+  company: 'Awarri / Collaborative Projects',
+  period: '2021 - Present',
+  location: 'Lagos, Nigeria',
+  description: 'Contributing to team-driven software solutions in AI and web development. Collaborated with cross-functional teams to deliver intuitive, high-performance web applications and tools.',
+  achievements: [
+    'Worked with AI teams at Awarri to build interfaces that improved data annotation workflows',
+    'Collaborated with a product team to design and develop a betting platform with wallet integration and real-time updates',
+    'Built scalable UI components and reusable styles for multiple startup projects, improving developer handoff and speed',
+    'Mentored teammates on React best practices and responsive design implementation'
+  ],
+  technologies: ['React', 'TypeScript', 'SASS', 'Tailwind CSS', 'Framer Motion', 'API Integration'],
+  icon: <FaBriefcase />
+}
+,
     {
-      type: 'work',
-      title: 'Senior Frontend Developer',
-      company: 'TechCorp Inc.',
-      period: '2022 - Present',
-      location: 'San Francisco, CA',
-      description: 'Leading frontend development for enterprise-level applications. Mentoring junior developers and implementing modern React patterns.',
-      achievements: [
-        'Led migration from class components to functional components with hooks',
-        'Improved application performance by 40% through code splitting',
-        'Implemented design system used by 50+ developers',
-        'Reduced bundle size by 30% through optimized imports'
-      ],
-      technologies: ['React', 'TypeScript', 'Next.js', 'GraphQL', 'Jest'],
-      icon: <FaBriefcase />
-    },
-    {
-      type: 'work',
-      title: 'Frontend Developer',
-      company: 'StartupXYZ',
-      period: '2020 - 2022',
-      location: 'Remote',
-      description: 'Developed and maintained customer-facing web applications. Collaborated with design team to implement responsive UIs.',
-      achievements: [
-        'Built responsive dashboard used by 10,000+ users',
-        'Implemented real-time features using WebSockets',
-        'Reduced page load time by 60%',
-        'Created component library used across multiple projects'
-      ],
-      technologies: ['React', 'Redux', 'Sass', 'Node.js', 'MongoDB'],
-      icon: <FaBriefcase />
-    },
-    {
-      type: 'work',
-      title: 'Junior Web Developer',
-      company: 'Digital Agency',
-      period: '2019 - 2020',
-      location: 'New York, NY',
-      description: 'Developed websites and web applications for various clients. Gained experience in full-stack development.',
-      achievements: [
-        'Delivered 20+ client projects on time and within budget',
-        'Implemented SEO strategies improving client rankings',
-        'Created responsive designs for mobile-first approach',
-        'Integrated third-party APIs and payment systems'
-      ],
-      technologies: ['JavaScript', 'PHP', 'WordPress', 'jQuery', 'MySQL'],
-      icon: <FaBriefcase />
-    },
-    {
-      type: 'education',
-      title: 'Bachelor of Computer Science',
-      company: 'University of Technology',
-      period: '2015 - 2019',
-      location: 'Boston, MA',
-      description: 'Focused on software engineering, algorithms, and web technologies. Graduated with honors.',
-      achievements: [
-        'Graduated Magna Cum Laude (GPA: 3.8/4.0)',
-        'President of Web Development Club',
-        'Completed senior project on machine learning applications',
-        'Participated in multiple hackathons and coding competitions'
-      ],
-      technologies: ['Java', 'Python', 'C++', 'Data Structures', 'Algorithms'],
-      icon: <FaGraduationCap />
-    },
-    {
-      type: 'education',
-      title: 'Web Development Bootcamp',
-      company: 'CodeMaster Institute',
-      period: '2019',
-      location: 'Online',
-      description: 'Intensive full-stack web development program focusing on modern technologies.',
-      achievements: [
-        'Completed 500+ hours of coding exercises',
-        'Built 10+ full-stack applications',
-        'Learned agile development methodologies',
-        'Participated in team projects using Git workflows'
-      ],
-      technologies: ['HTML/CSS', 'JavaScript', 'React', 'Node.js', 'Express'],
-      icon: <FaGraduationCap />
-    }
+  type: 'education',
+  title: 'Bachelor of Science in Computer Science',
+  company: 'The Polytechnic Ibadan',
+  period: '2017 - 2019',
+  location: 'Ibadan, Nigeria',
+  description: 'Studied core concepts in computer science with emphasis on programming, algorithms, and web development. Built a strong foundation for frontend engineering.',
+  achievements: [
+    'Developed academic projects using HTML, CSS, and JavaScript',
+    'Engaged in group projects that strengthened teamwork and problem-solving',
+    'Explored early interests in product design and web technologies',
+    'Built portfolio projects that evolved into professional freelance work'
+  ],
+  technologies: ['HTML', 'CSS', 'JavaScript', 'SASS', 'React'],
+  icon: <FaGraduationCap />
+}
+,
+   {
+  type: 'education',
+  title: 'Frontend Development Training',
+  company: 'Sail Innovation Lab',
+  period: '2024',
+  location: 'Lagos, Nigeria',
+  description: 'Completed an intensive training program focused on modern frontend technologies and best practices for building scalable applications.',
+  achievements: [
+    'Completed hands-on projects in React and responsive design',
+    'Built multiple applications including Meal Companion and an e-commerce site',
+    'Learned version control and collaborative workflows using Git',
+    'Applied agile principles in team-based projects'
+  ],
+  technologies: ['HTML', 'CSS', 'JavaScript', 'React', 'SASS', 'Tailwind CSS'],
+  icon: <FaGraduationCap />
+}
+
   ]
 
   const containerVariants = {
@@ -225,7 +229,7 @@ const Experience = () => {
             <div className="experience__cta-content">
               <h3>Want to see more details?</h3>
               <p>Download my full resume for a comprehensive overview of my experience and skills.</p>
-              <a href="/resume.pdf" className="experience__cta-button" download>
+              <a href="portfolio\src\assets\images\edidi-taiye-FlowCV-Resume-20250709.pdf" className="experience__cta-button" download>
                 <FaBriefcase />
                 Download Resume
               </a>

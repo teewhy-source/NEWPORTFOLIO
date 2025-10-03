@@ -34,8 +34,8 @@ const Contact = () => {
     {
       icon: <FaMapMarkerAlt />,
       title: 'Location',
-      value: 'San Francisco, CA',
-      link: 'https://maps.google.com/?q=San+Francisco,CA',
+      value: 'ebute ikorodu,lagos',
+      link: 'https://www.bing.com/maps?q=ebute+ikorodu%2Clagos&FORM=HDRSC6&cp=6.604024%7E3.490516&lvl=15.3',
       color: '#4285F4'
     }
   ]
