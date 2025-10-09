@@ -1,8 +1,7 @@
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaPaperPlane, FaGithub, FaLinkedin, FaTwitter, FaDiscord } from 'react-icons/fa'
 import { SiGmail } from 'react-icons/si'
-import emailjs from '@emailjs/browser'
 import toast from 'react-hot-toast'
 import './Contact.scss'
 
@@ -14,7 +13,6 @@ const Contact = () => {
     message: ''
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const formRef = useRef()
 
   const contactInfo = [
     {
@@ -28,13 +26,13 @@ const Contact = () => {
       icon: <FaPhone />,
       title: 'Phone',
       value: '+234 7013912352',
-      link: 'tel:+234 7013912352',
+      link: 'tel:+2347013912352',
       color: '#34A853'
     },
     {
       icon: <FaMapMarkerAlt />,
       title: 'Location',
-      value: 'ebute ikorodu,lagos',
+      value: 'Ebute Ikorodu, Lagos',
       link: 'https://www.bing.com/maps?q=ebute+ikorodu%2Clagos&FORM=HDRSC6&cp=6.604024%7E3.490516&lvl=15.3',
       color: '#4285F4'
     }
@@ -44,31 +42,31 @@ const Contact = () => {
     {
       icon: <FaGithub />,
       name: 'GitHub',
-      url: 'https://github.com/yourusername',
+      url: 'https://github.com/teewhyt',
       color: '#333'
     },
     {
       icon: <FaLinkedin />,
       name: 'LinkedIn',
-      url: 'https://linkedin.com/in/yourusername',
+      url: 'https://linkedin.com/in/taiye-edidi-8a5a282b0',
       color: '#0077B5'
     },
     {
       icon: <FaTwitter />,
       name: 'Twitter',
-      url: 'https://twitter.com/yourusername',
+      url: 'https://twitter.com/teewhyt',
       color: '#1DA1F2'
     },
     {
       icon: <SiGmail />,
       name: 'Gmail',
-      url: 'mailto:your.email@example.com',
+      url: 'mailto:edidi.taiye@gmail.com',
       color: '#EA4335'
     },
     {
       icon: <FaDiscord />,
       name: 'Discord',
-      url: 'https://discord.com/users/yourusername',
+      url: 'https://discord.com/users/teewhy',
       color: '#5865F2'
     }
   ]
@@ -86,29 +84,37 @@ const Contact = () => {
     setIsSubmitting(true)
 
     try {
-      // Replace with your EmailJS service details
-      await emailjs.send(
-        'YOUR_SERVICE_ID',
-        'YOUR_TEMPLATE_ID',
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          subject: formData.subject,
-          message: formData.message
+      // Replace with your actual Formspree form ID
+      const formspreeEndpoint = 'https://formspree.io/f/myyrreze'
+      
+      const response = await fetch(formspreeEndpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
-        'YOUR_PUBLIC_KEY'
-      )
-
-      toast.success('Message sent successfully! I\'ll get back to you soon.')
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          _replyto: formData.email, // This ensures replies go to the sender
+        }),
       })
+
+      if (response.ok) {
+        toast.success('Message sent successfully! I\'ll get back to you soon.')
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+        })
+      } else {
+        throw new Error('Form submission failed')
+      }
     } catch (error) {
-      toast.error('Failed to send message. Please try again or email me directly.')
-      console.error('Email sending error:', error)
+      console.error('Formspree error:', error)
+      toast.error('Failed to send message. Please try again or email me directly at edidi.taiye@gmail.com')
     } finally {
       setIsSubmitting(false)
     }
@@ -216,10 +222,10 @@ const Contact = () => {
 
             {/* Right Column - Contact Form */}
             <motion.div className="contact__form-container" variants={itemVariants}>
-              <form ref={formRef} onSubmit={handleSubmit} className="contact__form">
+              <form onSubmit={handleSubmit} className="contact__form">
                 <div className="contact__form-group contact__form-group--double">
                   <div className="contact__input-group">
-                    <label htmlFor="name" className="contact__label">Your Name</label>
+                    <label htmlFor="name" className="contact__label">Your Name *</label>
                     <input
                       type="text"
                       id="name"
@@ -227,12 +233,12 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       className="contact__input"
-                      placeholder="teewhy"
+                      placeholder="Teewhy"
                       required
                     />
                   </div>
                   <div className="contact__input-group">
-                    <label htmlFor="email" className="contact__label">Email Address</label>
+                    <label htmlFor="email" className="contact__label">Email Address *</label>
                     <input
                       type="email"
                       id="email"
@@ -240,7 +246,7 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       className="contact__input"
-                      placeholder="ABC@example.com"
+                      placeholder="your@email.com"
                       required
                     />
                   </div>
@@ -256,12 +262,11 @@ const Contact = () => {
                     onChange={handleInputChange}
                     className="contact__input"
                     placeholder="Project Discussion"
-                    required
                   />
                 </div>
 
                 <div className="contact__form-group">
-                  <label htmlFor="message" className="contact__label">Your Message</label>
+                  <label htmlFor="message" className="contact__label">Your Message *</label>
                   <textarea
                     id="message"
                     name="message"
