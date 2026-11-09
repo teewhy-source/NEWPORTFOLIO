@@ -5,7 +5,8 @@ import { SiGmail } from 'react-icons/si'
 import toast from 'react-hot-toast'
 import './Contact.scss'
 
-const Contact = () => {
+const 
+Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',

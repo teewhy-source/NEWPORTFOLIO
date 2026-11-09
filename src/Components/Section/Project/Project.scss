@@ -9,6 +9,7 @@ $projects-text-secondary: #a1a1b3;
 $projects-primary: #6e45e2;
 $projects-accent: #ff7e5f;
 $projects-gradient: linear-gradient(135deg, #6e45e2, #ff7e5f);
+$projects-ai-gradient: linear-gradient(135deg, #8B5CF6, #06B6D4);
 
 $projects-spacing-xs: 0.5rem;
 $projects-spacing-sm: 1rem;
@@ -58,7 +59,7 @@ $projects-breakpoint-mobile: 480px;
   &__header {
     text-align: center;
     margin-bottom: $projects-spacing-xxl;
-    max-width: 600px;
+    max-width: 640px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -102,7 +103,7 @@ $projects-breakpoint-mobile: 480px;
     font-size: 1.1rem;
     line-height: 1.6;
     color: $projects-text-secondary;
-    
+
     @media (max-width: $projects-breakpoint-mobile) {
       font-size: 1rem;
     }
@@ -180,6 +181,8 @@ $projects-breakpoint-mobile: 480px;
     border: 1px solid rgba($projects-text, 0.1);
     transition: all 0.3s ease;
     position: relative;
+    display: flex;
+    flex-direction: column;
 
     &:hover {
       border-color: rgba($projects-primary, 0.3);
@@ -188,7 +191,7 @@ $projects-breakpoint-mobile: 480px;
 
     &--featured {
       border: 2px solid $projects-primary;
-      
+
       &::before {
         content: '';
         position: absolute;
@@ -198,6 +201,34 @@ $projects-breakpoint-mobile: 480px;
         height: 3px;
         background: $projects-gradient;
         z-index: 2;
+      }
+    }
+
+    // NEW: AI Data card variant
+    &--ai-data {
+      border-color: rgba(6, 182, 212, 0.4);
+      background: linear-gradient(
+        160deg,
+        rgba(6, 182, 212, 0.06) 0%,
+        $projects-bg-secondary 60%
+      );
+
+      &::before {
+        background: $projects-ai-gradient;
+      }
+
+      &:hover {
+        border-color: rgba(6, 182, 212, 0.6);
+        box-shadow: 0 20px 40px rgba(6, 182, 212, 0.15);
+      }
+
+      .projects__card-featured {
+        background: $projects-ai-gradient;
+      }
+
+      .projects__tech-tag {
+        background: rgba(6, 182, 212, 0.12);
+        color: #22D3EE;
       }
     }
   }
@@ -218,7 +249,7 @@ $projects-breakpoint-mobile: 480px;
       img {
         transform: scale(1.05);
       }
-      
+
       .projects__card-overlay {
         opacity: 1;
       }
@@ -242,6 +273,9 @@ $projects-breakpoint-mobile: 480px;
   &__card-actions {
     display: flex;
     gap: $projects-spacing-sm;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: $projects-spacing-sm;
   }
 
   &__card-action {
@@ -278,10 +312,14 @@ $projects-breakpoint-mobile: 480px;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    z-index: 2;
   }
 
   &__card-content {
     padding: $projects-spacing-lg;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
   }
 
   &__card-title {
@@ -297,6 +335,7 @@ $projects-breakpoint-mobile: 480px;
     line-height: 1.5;
     color: $projects-text-secondary;
     margin-bottom: $projects-spacing-md;
+    flex: 1;
   }
 
   &__card-tech {
@@ -318,6 +357,7 @@ $projects-breakpoint-mobile: 480px;
   &__card-links {
     display: flex;
     gap: $projects-spacing-sm;
+    flex-wrap: wrap;
   }
 
   &__card-link {
@@ -330,7 +370,10 @@ $projects-breakpoint-mobile: 480px;
     border: 1px solid rgba($projects-text, 0.2);
     border-radius: 6px;
     font-size: 0.85rem;
+    font-family: $projects-font-primary;
+    font-weight: 500;
     text-decoration: none;
+    cursor: pointer;
     transition: all 0.3s ease;
 
     &:hover {
@@ -343,9 +386,9 @@ $projects-breakpoint-mobile: 480px;
       color: white;
       border-color: $projects-primary;
 
-      // FIXED: Use the imported color module
       &:hover {
         background: color.scale($projects-primary, $lightness: 10%);
+        color: white;
       }
     }
   }
@@ -443,7 +486,7 @@ $projects-breakpoint-mobile: 480px;
     right: 0;
     background: linear-gradient(transparent, rgba(10, 10, 20, 0.9));
     padding: $projects-spacing-xl $projects-spacing-lg $projects-spacing-lg;
-    
+
     h3 {
       font-family: $projects-font-primary;
       font-size: 1.5rem;
@@ -481,6 +524,43 @@ $projects-breakpoint-mobile: 480px;
       line-height: 1.6;
       color: $projects-text-secondary;
     }
+  }
+
+  // NEW: annotation meta grid (AI-data modal)
+  &__modal-meta {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $projects-spacing-sm;
+    margin-bottom: $projects-spacing-md;
+
+    @media (max-width: $projects-breakpoint-mobile) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__modal-meta-item {
+    display: flex;
+    flex-direction: column;
+    padding: $projects-spacing-sm;
+    background: rgba($projects-text, 0.04);
+    border: 1px solid rgba($projects-text, 0.1);
+    border-radius: 8px;
+  }
+
+  &__modal-meta-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: $projects-text-secondary;
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+
+  &__modal-meta-value {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: $projects-text;
+    line-height: 1.4;
   }
 
   &__modal-features {
@@ -542,7 +622,6 @@ $projects-breakpoint-mobile: 480px;
       color: white;
       border-color: $projects-primary;
 
-      // FIXED: Use the imported color module
       &:hover {
         background: color.scale($projects-primary, $lightness: 10%);
       }

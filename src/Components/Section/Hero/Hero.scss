@@ -20,15 +20,12 @@ $hero-breakpoint-tablet: 968px;
 $hero-breakpoint-mobile: 480px;
 
 // ----------------------------------------------------
-// Fix: define badge colors in SCSS and export as CSS vars
+// Badge base color (per-badge color is set from JSX)
 // ----------------------------------------------------
-// QUICK FIX: Replace the problematic line with a static color
 $badge-base: #6e45e2;
-$badge-light: #8d6ae6; // Manually calculated lighter version
 
 :root {
   --badge-color: #{$badge-base};
-  --badge-color-light: #{$badge-light};
 }
 
 // Hero Styles
@@ -174,6 +171,48 @@ $badge-light: #8d6ae6; // Manually calculated lighter version
     @media (max-width: $hero-breakpoint-tablet) {
       margin: 0 auto;
       font-size: 1rem;
+    }
+  }
+
+  // NEW: Credibility highlight pills
+  &__highlights {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $hero-spacing-xs;
+    margin: $hero-spacing-lg 0 $hero-spacing-md;
+    max-width: 520px;
+
+    @media (min-width: 640px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media (max-width: $hero-breakpoint-tablet) {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &__highlight {
+    display: flex;
+    flex-direction: column;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid rgba($hero-text-color, 0.12);
+    border-radius: 10px;
+    background: rgba($hero-text-color, 0.03);
+    backdrop-filter: blur(6px);
+
+    strong {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: $hero-text-color;
+      line-height: 1.1;
+    }
+
+    span {
+      font-size: 0.68rem;
+      color: $hero-text-secondary;
+      line-height: 1.3;
+      margin-top: 2px;
     }
   }
 
@@ -363,7 +402,7 @@ $badge-light: #8d6ae6; // Manually calculated lighter version
     pointer-events: none;
   }
 
-  // Rotating Tech Badges - IMPROVED ORBIT ANIMATION
+  // Rotating Tech Badges — dynamic orbit, works for any badge count
   &__tech-badge {
     position: absolute;
     background: rgba(10, 10, 20, 0.95);
@@ -380,15 +419,23 @@ $badge-light: #8d6ae6; // Manually calculated lighter version
     gap: 6px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
-    
+
+    // Orbit configuration (per-badge via CSS vars from JSX)
+    --orbit-radius: 200px;
+    --start-angle: calc((360deg / var(--total-badges)) * var(--badge-index));
+
     // Center the badges initially
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    
+
     // Create the orbit effect
     animation: orbitBadge 20s linear infinite;
-    animation-delay: calc(var(--badge-index) * -3s);
+    animation-delay: calc(
+      (var(--total-badges) - var(--badge-index))
+      * (20s / var(--total-badges))
+      * -1
+    );
 
     &:hover {
       transform: scale(1.1) translate(-50%, -50%);
@@ -403,41 +450,12 @@ $badge-light: #8d6ae6; // Manually calculated lighter version
     }
   }
 
-  // Position each badge at different angles around the circle
-  &__tech-badge--react {
-    --orbit-radius: 200px;
-    --start-angle: 0deg;
-  }
-  &__tech-badge--ts {
-    --orbit-radius: 200px;
-    --start-angle: 60deg;
-  }
-  &__tech-badge--js {
-    --orbit-radius: 200px;
-    --start-angle: 120deg;
-  }
-  &__tech-badge--css {
-    --orbit-radius: 200px;
-    --start-angle: 180deg;
-  }
-  &__tech-badge--tailwind {
-    --orbit-radius: 200px;
-    --start-angle: 240deg;
-  }
-  &__tech-badge--html {
-    --orbit-radius: 200px;
-    --start-angle: 300deg;
-  }
-
   &__tech-icon {
     font-size: 0.9rem;
   }
 
   &__tech-text {
-    background: linear-gradient(135deg, var(--badge-color), var(--badge-color-light));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--badge-color);
     white-space: nowrap;
   }
 
@@ -501,20 +519,20 @@ $badge-light: #8d6ae6; // Manually calculated lighter version
   }
 }
 
-// NEW IMPROVED ORBIT ANIMATION
+// Orbit animation — angle is driven by --start-angle computed per badge
 @keyframes orbitBadge {
   0% {
-    transform: 
-      rotate(var(--start-angle)) 
-      translateX(var(--orbit-radius)) 
-      rotate(calc(-1 * var(--start-angle))) 
+    transform:
+      rotate(var(--start-angle))
+      translateX(var(--orbit-radius))
+      rotate(calc(-1 * var(--start-angle)))
       translate(-50%, -50%);
   }
   100% {
-    transform: 
-      rotate(calc(var(--start-angle) + 360deg)) 
-      translateX(var(--orbit-radius)) 
-      rotate(calc(-1 * var(--start-angle) - 360deg)) 
+    transform:
+      rotate(calc(var(--start-angle) + 360deg))
+      translateX(var(--orbit-radius))
+      rotate(calc(-1 * var(--start-angle) - 360deg))
       translate(-50%, -50%);
   }
 }

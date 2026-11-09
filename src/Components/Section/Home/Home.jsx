@@ -13,14 +13,14 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>Your Name - Portfolio | Frontend Developer</title>
-        <meta name="description" content="Personal portfolio of [Your Name], a skilled frontend developer specializing in React, TypeScript, and modern web technologies." />
+        <title>EDIDI TAIYE - Portfolio | Frontend Developer</title>
+        <meta name="description" content="Personal portfolio of EDIDI TAIYE, a skilled frontend developer specializing in React, TypeScript, and modern web technologies." />
         <meta name="keywords" content="frontend developer, react developer, portfolio, web development, javascript, typescript" />
-        <meta property="og:title" content="Your Name - Portfolio" />
+        <meta property="og:title" content="EDIDI TAIYE - Portfolio" />
         <meta property="og:description" content="Frontend Developer crafting beautiful digital experiences" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Your Name - Portfolio" />
+        <meta name="twitter:title" content="EDIDI TAIYE - Portfolio" />
         <meta name="twitter:description" content="Frontend Developer specializing in React and modern web technologies" />
       </Helmet>
 

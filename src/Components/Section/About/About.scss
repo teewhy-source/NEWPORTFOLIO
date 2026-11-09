@@ -123,6 +123,11 @@ $about-breakpoint-mobile: 480px;
         color: $about-text-secondary;
         margin-bottom: $about-spacing-md;
 
+        strong {
+          color: $about-text;
+          font-weight: 600;
+        }
+
         @media (max-width: $about-breakpoint-mobile) {
           font-size: 1rem;
         }
@@ -130,11 +135,51 @@ $about-breakpoint-mobile: 480px;
     }
   }
 
+  // AI Data highlight card
+  &__ai-block {
+    margin-bottom: $about-spacing-xl;
+    padding: $about-spacing-lg;
+    background: rgba($about-primary, 0.06);
+    border: 1px solid rgba($about-primary, 0.25);
+    border-radius: 14px;
+
+    h4 {
+      font-family: $about-font-primary;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: $about-text;
+      margin-bottom: $about-spacing-sm;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: $about-spacing-xs;
+
+      li {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        color: $about-text-secondary;
+
+        strong {
+          color: $about-primary;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
   &__stats {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: $about-spacing-md;
     margin-bottom: $about-spacing-xl;
+
+    @media (min-width: $about-breakpoint-tablet) {
+      grid-template-columns: repeat(4, 1fr);
+    }
 
     @media (max-width: $about-breakpoint-mobile) {
       grid-template-columns: 1fr;
@@ -177,7 +222,7 @@ $about-breakpoint-mobile: 480px;
   }
 
   &__stat-label {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: $about-text-secondary;
     margin-top: $about-spacing-xs;
   }
@@ -219,7 +264,7 @@ $about-breakpoint-mobile: 480px;
       padding: $about-spacing-lg;
     }
 
-    h3 {
+    > h3 {
       font-family: $about-font-primary;
       font-size: 1.5rem;
       font-weight: 600;
@@ -228,12 +273,30 @@ $about-breakpoint-mobile: 480px;
     }
   }
 
+  &__skills-group {
+    margin-bottom: $about-spacing-lg;
+
+    &:last-of-type {
+      margin-bottom: $about-spacing-xl;
+    }
+
+    > h4 {
+      font-family: $about-font-primary;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: $about-primary;
+      margin-bottom: $about-spacing-md;
+    }
+  }
+
   &__skills-list {
-    margin-bottom: $about-spacing-xl;
+    margin-bottom: 0;
   }
 
   &__skill {
-    margin-bottom: $about-spacing-lg;
+    margin-bottom: $about-spacing-md;
 
     &:last-child {
       margin-bottom: 0;
@@ -244,20 +307,35 @@ $about-breakpoint-mobile: 480px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: $about-spacing-sm;
+    margin-bottom: $about-spacing-xs;
+    gap: $about-spacing-sm;
   }
 
   &__skill-name {
     font-family: $about-font-primary;
-    font-weight: 600;
+    font-weight: 500;
     color: $about-text;
-    font-size: 1rem;
+    font-size: 0.92rem;
   }
 
-  &__skill-percent {
-    font-size: 0.9rem;
-    color: $about-primary;
+  // Replaces __skill-percent
+  &__skill-level {
+    font-family: $about-font-secondary;
+    font-size: 0.72rem;
     font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: $about-primary;
+    padding: 2px 8px;
+    border: 1px solid rgba($about-primary, 0.35);
+    border-radius: 999px;
+    flex-shrink: 0;
+    white-space: nowrap;
+
+    &--data {
+      color: #06B6D4;
+      border-color: rgba(6, 182, 212, 0.35);
+    }
   }
 
   &__skill-bar {
@@ -286,6 +364,10 @@ $about-breakpoint-mobile: 480px;
     }
   }
 
+  &__skill-progress--data {
+    background: linear-gradient(135deg, #8B5CF6, #06B6D4);
+  }
+
   &__tech-tags {
     h4 {
       font-family: $about-font-primary;
@@ -299,7 +381,7 @@ $about-breakpoint-mobile: 480px;
   &__tags {
     display: flex;
     flex-wrap: wrap;
-    gap: $about-spacing-sm;
+    gap: $about-spacing-xs;
   }
 
   &__tag {
@@ -308,7 +390,7 @@ $about-breakpoint-mobile: 480px;
     color: $about-primary;
     border: 1px solid rgba($about-primary, 0.3);
     border-radius: 20px;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 500;
     transition: all 0.3s ease;
 
@@ -322,12 +404,8 @@ $about-breakpoint-mobile: 480px;
 
 // Animations
 @keyframes shimmer {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }
 
 // Responsive adjustments
@@ -342,7 +420,7 @@ $about-breakpoint-mobile: 480px;
     &__stats {
       grid-template-columns: 1fr;
     }
-    
+
     &__tags {
       justify-content: center;
     }

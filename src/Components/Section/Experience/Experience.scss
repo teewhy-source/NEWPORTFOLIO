@@ -8,6 +8,7 @@ $experience-accent: #ff7e5f;
 $experience-gradient: linear-gradient(135deg, #6e45e2, #ff7e5f);
 $experience-work: #6e45e2;
 $experience-education: #ff7e5f;
+$experience-ai: #06B6D4;
 
 $experience-spacing-xs: 0.5rem;
 $experience-spacing-sm: 1rem;
@@ -57,7 +58,7 @@ $experience-breakpoint-mobile: 480px;
   &__header {
     text-align: center;
     margin-bottom: $experience-spacing-xxl;
-    max-width: 600px;
+    max-width: 640px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -101,7 +102,7 @@ $experience-breakpoint-mobile: 480px;
     font-size: 1.1rem;
     line-height: 1.6;
     color: $experience-text-secondary;
-    
+
     @media (max-width: $experience-breakpoint-mobile) {
       font-size: 1rem;
     }
@@ -121,13 +122,14 @@ $experience-breakpoint-mobile: 480px;
       transform: translateX(-50%);
       width: 2px;
       height: 100%;
-      background: linear-gradient(to bottom, 
-        transparent, 
-        $experience-primary, 
-        $experience-accent, 
+      background: linear-gradient(to bottom,
+        transparent,
+        $experience-primary,
+        $experience-ai,
+        $experience-accent,
         transparent
       );
-      
+
       @media (max-width: $experience-breakpoint-tablet) {
         left: 30px;
       }
@@ -201,13 +203,17 @@ $experience-breakpoint-mobile: 480px;
     .experience__item.education & {
       border-color: $experience-education;
     }
+
+    .experience__item.ai-data & {
+      border-color: $experience-ai;
+    }
   }
 
   &__timeline-connector {
     width: 2px;
     height: calc(100% + $experience-spacing-xl);
-    background: linear-gradient(to bottom, 
-      rgba(110, 69, 226, 0.5), 
+    background: linear-gradient(to bottom,
+      rgba(110, 69, 226, 0.5),
       rgba(255, 126, 95, 0.5)
     );
     margin-top: 10px;
@@ -243,6 +249,10 @@ $experience-breakpoint-mobile: 480px;
       border-left: 4px solid $experience-education;
     }
 
+    .experience__item.ai-data &:hover {
+      border-left: 4px solid $experience-ai;
+    }
+
     @media (max-width: $experience-breakpoint-tablet) {
       max-width: 100%;
       padding: $experience-spacing-md;
@@ -275,6 +285,11 @@ $experience-breakpoint-mobile: 480px;
       background: rgba($experience-education, 0.1);
       color: $experience-education;
     }
+
+    .experience__item.ai-data & {
+      background: rgba($experience-ai, 0.1);
+      color: $experience-ai;
+    }
   }
 
   &__card-title {
@@ -291,6 +306,10 @@ $experience-breakpoint-mobile: 480px;
     color: $experience-primary;
     font-weight: 500;
     font-size: 1rem;
+
+    .experience__item.ai-data & {
+      color: $experience-ai;
+    }
   }
 
   &__card-meta {
@@ -310,6 +329,10 @@ $experience-breakpoint-mobile: 480px;
     svg {
       color: $experience-primary;
       font-size: 0.8rem;
+    }
+
+    .experience__item.ai-data & svg {
+      color: $experience-ai;
     }
   }
 
@@ -353,6 +376,10 @@ $experience-breakpoint-mobile: 480px;
     background: $experience-primary;
     margin-top: 0.5rem;
     flex-shrink: 0;
+
+    .experience__item.ai-data & {
+      background: $experience-ai;
+    }
   }
 
   &__technologies {
@@ -378,6 +405,11 @@ $experience-breakpoint-mobile: 480px;
     border-radius: 6px;
     font-size: 0.75rem;
     font-weight: 500;
+
+    .experience__item.ai-data & {
+      background: rgba($experience-ai, 0.12);
+      color: $experience-ai;
+    }
   }
 
   &__type-badge {
@@ -401,6 +433,12 @@ $experience-breakpoint-mobile: 480px;
       background: rgba($experience-education, 0.1);
       color: $experience-education;
       border: 1px solid rgba($experience-education, 0.3);
+    }
+
+    &--ai-data {
+      background: rgba($experience-ai, 0.1);
+      color: $experience-ai;
+      border: 1px solid rgba($experience-ai, 0.3);
     }
   }
 
@@ -459,10 +497,11 @@ $experience-breakpoint-mobile: 480px;
     padding: $experience-spacing-xl 0;
 
     &__timeline::before {
-      background: linear-gradient(to bottom, 
-        transparent, 
-        $experience-primary, 
-        $experience-accent, 
+      background: linear-gradient(to bottom,
+        transparent,
+        $experience-primary,
+        $experience-ai,
+        $experience-accent,
         $experience-primary,
         transparent
       );
