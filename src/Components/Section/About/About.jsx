@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { FaCode, FaRocket, FaHeart, FaDatabase, FaDownload } from 'react-icons/fa'
 import './About.scss'
-import resume from '../../../assets/images/Edidi-taiye-FlowCV-Resume-20250709.pdf'
+import resume from '../../../assets/images/edidi-taiye-FlowCV-Resume-20250709.pdf'
 
 const About = () => {
   const stats = [

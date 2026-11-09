@@ -8,7 +8,7 @@ import {
   FaDownload
 } from 'react-icons/fa'
 import './Experience.scss'
-import resume from '../../../assets/images/Edidi-taiye-FlowCV-Resume-20250709.pdf'
+import resume from '../../../assets/images/edidi-taiye-FlowCV-Resume-20250709.pdf'
 
 const Experience = () => {
   const experiences = [
