@@ -15,14 +15,12 @@ export default defineConfig({
     },
   },
   css: {
-  preprocessorOptions: {
-    scss: {
-      additionalData: `
-       
-      `
-    }
-  }
-},
+    preprocessorOptions: {
+      scss: {
+        api: 'modern',
+      },
+    },
+  },
   build: {
     outDir: 'dist',
     sourcemap: false,
